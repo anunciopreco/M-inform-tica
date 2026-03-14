@@ -129,7 +129,7 @@ function checkout() {
     let msg = "🛒 *NOVO PEDIDO TECHSTORE*%0A%0A";
     cart.forEach(i => msg += `• ${i.name} (${i.qty}x)%0A`);
     msg += `%0A💰 *Total:* ${document.getElementById("cartTotal").innerText}`;
-    window.open(`https://wa.me/55996646300?text=${msg}`, "_blank");
+    window.open(`https://wa.me/5581996646300?text=${msg}`, "_blank");
 }
 
 renderProducts(products);
