@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechStore PRO | Elite Gaming</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="top-bar">
+    <p>🚚 <strong>FRETE GRÁTIS</strong> para Pernambuco em compras acima de R$ 25,00!</p>
+</div>
+
+<header>
+    <div class="logo"><span>Tech</span>Store</div>
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Buscar no setup..." onkeyup="filterProducts()">
+    </div>
+    <button class="cart-trigger" onclick="toggleCart()">
+        <div class="cart-icon-wrapper">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle>
+                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>
+            <span class="cart-badge" id="cartCount">0</span>
+        </div>
+    </button>
+</header>
+
+<div class="container">
+    <div class="section-title">
+        <h2>🔥 Mais Vendidos & Ofertas</h2>
+        <p>Equipamentos de alta performance para o seu próximo level.</p>
+    </div>
+
+    <div class="filters">
+        <button class="filter-btn active" onclick="filterCategory('todos', this)">Todos</button>
+        <button class="filter-btn promo-filter" onclick="filterCategory('promo', this)">% Promoções</button>
+        <button class="filter-btn" onclick="filterCategory('mouse', this)">Mouses</button>
+        <button class="filter-btn" onclick="filterCategory('teclado', this)">Teclados</button>
+        <button class="filter-btn" onclick="filterCategory('hardware', this)">Hardware</button>
+    </div>
+
+    <div class="products-grid" id="productsGrid"></div>
+</div>
+
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+<div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+        <h3>Meu Carrinho</h3>
+        <button class="close-btn" onclick="toggleCart()">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-extras">
+        <div class="extra-card" id="couponCard">
+            <div class="extra-header">🏷️ <span>Cupom</span></div>
+            <div class="extra-body">
+                <input type="text" id="couponInput" placeholder="Ex: TECH10">
+                <button onclick="applyCoupon()">OK</button>
+            </div>
+        </div>
+        <div class="extra-card" id="shippingCard">
+            <div class="extra-header">🚚 <span>Calcular Frete (CEP)</span></div>
+            <div class="extra-body">
+                <input type="text" id="shippingInput" placeholder="50000-000">
+                <button onclick="calculateShipping()">Calcular</button>
+            </div>
+        </div>
+    </div>
+    <div class="cart-footer">
+        <div class="total-row"><span>Subtotal:</span> <span id="cartSubtotal">R$ 0,00</span></div>
+        <div class="total-row" id="discountRow" style="display:none; color:#00f2fe"><span>Desconto:</span> <span id="cartDiscount">R$ 0,00</span></div>
+        <div class="total-row"><span>Frete:</span> <span id="cartShipping">R$ 0,00</span></div>
+        <div class="total-row final"><span>Total:</span> <span id="cartTotal">R$ 0,00</span></div>
+        <button class="checkout-btn" onclick="checkout()">Finalizar no WhatsApp</button>
+    </div>
+</div>
+<div id="toast"></div>
+<script src="script.js"></script>
+</body>
+</html>
