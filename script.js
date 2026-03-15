@@ -1,5 +1,5 @@
 const products = [
-    { id:1, name:"Mouse Gamer RGB", price:8.00, oldPrice: 15.00, category:"mouse", stock: 10, bestSeller: true, promo: true, img:"imagem/09.png"},
+    { id:1, name:"Mouse Maxprint MO1000 Essential, 3 Botões", price:8.00, oldPrice: 15.00, category:"mouse", stock: 10, bestSeller: true, promo: true, img:"imagem/09.png"},
     { id:2, name:"Kit Teclado e Mouse", price:49.00, category:"teclado", stock: 2, bestSeller: true, promo: false, img:"imagem/18660A.jpg"},
     { id:3, name:"SSD NVMe 128.GB", price:170.00, oldPrice: 210.00, category:"hardware", stock: 10, bestSeller: false, promo: true, img:"imagem/23412A.jpg"},
     { id:4, name:"Memória Dahua, 4GB, 1600MHz, DDR3, CL11, Preto - DHI-DDR-C160U4G", price:95.00, category:"hardware", stock: 0, bestSeller: false, promo: false, img:"imagem/24617A.jpg"},
