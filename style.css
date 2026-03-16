@@ -345,7 +345,7 @@ header {
    RESPONSIVIDADE
    ========================= */
 
-@media (max-width: 900px){
+@media (max-width: 500px){
     header{ flex-wrap: wrap; gap:10px; padding:15px 5%; }
     .logo{ font-size:1.3rem; }
     .search-bar{ width:100%; order:3; }
@@ -354,7 +354,7 @@ header {
     .products-grid{ grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:15px; }
 }
 
-@media (max-width: 500px){
+@media (max-width: 400px){
     header{ padding:12px 4%; }
     .products-grid{ grid-template-columns:repeat(2,1fr); gap:12px; }
     .product-card img{ height:120px; }
@@ -364,8 +364,8 @@ header {
     .cart-sidebar.active{ right:0; }
     
     /* Compactação Extra para Mobile */
-    .cart-header { padding: 12px 15px; }
+    .cart-header { padding: 11px 13px; }
     .cart-items { padding: 10px; }
-    .cart-footer { padding: 12px 15px; }
+    .cart-footer { padding: 11px 13px; }
     .checkout-btn { padding: 12px; font-size: 0.95rem; }
 }
