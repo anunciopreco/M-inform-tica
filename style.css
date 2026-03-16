@@ -1,47 +1,97 @@
 :root {
-    --primary: #7c3aed; --accent: #00f2fe; --bg: #0a0a0c; --card-bg: #16161a;
-    --text: #ffffff; --text-dim: #a1a1aa; --glass: rgba(255, 255, 255, 0.05);
+    --primary: #7c3aed; 
+    --accent: #00f2fe; 
+    --bg: #0a0a0c; 
+    --card-bg: #16161a;
+    --text: #ffffff; 
+    --text-dim: #a1a1aa; 
+    --glass: rgba(255, 255, 255, 0.08);
 }
+
 * { margin:0; padding:0; box-sizing:border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
 body { background: var(--bg); color: var(--text); overflow-x: hidden; }
 
+/* Layout Geral */
 .top-bar { background: linear-gradient(90deg, #7c3aed, #4c1d95); color: white; text-align: center; padding: 10px; font-size: 0.85rem; }
 header { background: rgba(10, 10, 12, 0.9); backdrop-filter: blur(10px); padding: 15px 8%; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid var(--glass); }
-.logo span { color: var(--primary); font-weight: 800; }
+.logo { font-weight: 800; font-size: 1.5rem; }
+.logo span { color: var(--primary); }
 
+.search-bar input { background: var(--glass); border: 1px solid var(--glass); padding: 10px 20px; border-radius: 12px; color: white; outline: none; width: 300px; transition: 0.3s; }
+.search-bar input:focus { border-color: var(--primary); width: 350px; }
+
+/* Carrinho Trigger */
 .cart-trigger { background: var(--glass); border: 1px solid var(--glass); padding: 10px; border-radius: 12px; color: white; cursor: pointer; position: relative; }
-.cart-badge { position: absolute; top: -10px; right: -10px; background: var(--accent); color: #000; width: 22px; height: 22px; border-radius: 50%; font-size: 11px; font-weight: 800; display: flex; align-items: center; justify-content: center; border: 2px solid var(--bg); }
+.cart-badge { position: absolute; top: -10px; right: -10px; background: var(--accent); color: #000; width: 22px; height: 22px; border-radius: 50%; font-size: 11px; font-weight: 800; display: flex; align-items: center; justify-content: center; border: 2px solid var(--bg); transition: 0.3s; }
 .cart-badge.pop { transform: scale(1.3); }
 
+/* Grid e Cards */
 .container { padding: 40px 8%; }
 .filters { display: flex; gap: 10px; margin-bottom: 30px; overflow-x: auto; padding-bottom: 10px; }
 .filter-btn { background: var(--card-bg); border: 1px solid var(--glass); color: white; padding: 10px 20px; border-radius: 25px; cursor: pointer; white-space: nowrap; transition: 0.3s; }
 .filter-btn.active { background: var(--primary); }
 
 .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 25px; }
-.product-card { background: var(--card-bg); padding: 20px; border-radius: 20px; border: 1px solid var(--glass); position: relative; transition: 0.4s; }
+.product-card { background: var(--card-bg); padding: 20px; border-radius: 20px; border: 1px solid var(--glass); position: relative; transition: 0.4s; display: flex; flex-direction: column; }
 .product-card:hover { transform: translateY(-10px); border-color: var(--primary); }
-
-.badge { position: absolute; top: 15px; left: 15px; padding: 4px 10px; border-radius: 6px; font-size: 10px; font-weight: 800; }
-.badge-promo { background: #ef4444; color: white; }
-.badge-best { background: #f59e0b; color: white; left: 75px; }
-
 .product-card img { width: 100%; height: 180px; object-fit: contain; margin-bottom: 15px; }
-.price-old { text-decoration: line-through; color: var(--text-dim); font-size: 0.9rem; margin-right: 10px; }
-.product-price { font-size: 1.3rem; font-weight: 800; color: var(--accent); }
+
+/* Descrição e Textos */
+.product-name { font-weight: 800; font-size: 1.1rem; margin-bottom: 5px; color: var(--text); }
+.product-description { 
+    font-size: 0.85rem; 
+    color: var(--text-dim); 
+    margin-bottom: 15px; 
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Para Chrome/Safari */
+    line-clamp: 2;         /* Propriedade padrão (Resolve seu erro) */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 2.4em;
+}
+
+.product-price { font-size: 1.3rem; font-weight: 800; color: var(--accent); margin-top: auto; }
+.price-old { text-decoration: line-through; color: var(--text-dim); font-size: 0.9rem; margin-right: 8px; }
+
 .add-btn { width: 100%; padding: 12px; background: white; border: none; border-radius: 12px; font-weight: 800; cursor: pointer; margin-top: 15px; transition: 0.3s; }
 .add-btn:hover { background: var(--primary); color: white; }
 
-.cart-sidebar { position: fixed; right: -420px; top: 0; width: 400px; height: 100vh; background: #0f0f12; z-index: 1001; padding: 25px; transition: 0.4s; display: flex; flex-direction: column; }
+/* Badges */
+.badge { position: absolute; top: 15px; left: 15px; padding: 4px 10px; border-radius: 6px; font-size: 10px; font-weight: 800; z-index: 1; }
+.badge-promo { background: #ef4444; color: white; }
+.badge-best { background: #f59e0b; color: white; left: 85px; }
+
+/* Carrinho Sidebar */
+.cart-sidebar { position: fixed; right: -420px; top: 0; width: 400px; height: 100vh; background: #0f0f12; z-index: 1001; transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1); display: flex; flex-direction: column; box-shadow: -10px 0 30px rgba(0,0,0,0.5); }
 .cart-sidebar.active { right: 0; }
-.cart-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(4px); opacity: 0; pointer-events: none; z-index: 1000; }
+.cart-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.8); backdrop-filter: blur(4px); opacity: 0; pointer-events: none; z-index: 1000; transition: 0.4s; }
 .cart-sidebar.active + .cart-overlay { opacity: 1; pointer-events: auto; }
 
+.cart-header { padding: 25px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--glass); }
+.close-btn { background: var(--glass); border: none; color: white; width: 32px; height: 32px; border-radius: 8px; cursor: pointer; }
+
+.cart-items { flex: 1; overflow-y: auto; padding: 20px; }
+.cart-item { display: flex; gap: 15px; background: var(--glass); padding: 12px; border-radius: 15px; margin-bottom: 15px; align-items: center; border: 1px solid transparent; transition: 0.3s; }
+.cart-item:hover { border-color: var(--primary); }
+.cart-item img { width: 60px; height: 60px; object-fit: contain; background: #000; border-radius: 10px; }
+
+.qty-control { display: flex; align-items: center; gap: 12px; background: #000; padding: 5px 12px; border-radius: 8px; }
+.qty-btn { background: none; border: none; color: var(--accent); cursor: pointer; font-size: 1.2rem; font-weight: bold; }
+
+/* Checkout e Extras */
+.cart-extras { padding: 0 20px; }
 .extra-card { background: rgba(255,255,255,0.03); padding: 12px; border-radius: 12px; border: 1px solid var(--glass); margin-bottom: 10px; }
 .extra-body { display: flex; gap: 8px; margin-top: 8px; }
 .extra-body input { flex: 1; background: #000; border: 1px solid var(--glass); padding: 8px; color: white; border-radius: 8px; outline: none; }
 .extra-body button { background: var(--primary); color: white; border: none; padding: 0 15px; border-radius: 8px; cursor: pointer; font-weight: 700; }
-.coupon-active { border-color: var(--accent); background: rgba(0, 242, 254, 0.05); }
+
+.cart-footer { padding: 25px; background: rgba(255,255,255,0.02); border-top: 1px solid var(--glass); }
+.total-row { display: flex; justify-content: space-between; margin-bottom: 8px; color: var(--text-dim); }
+.total-row.final { margin-top: 15px; padding-top: 15px; border-top: 1px solid var(--glass); color: var(--text); font-size: 1.3rem; font-weight: 800; }
+
+.checkout-btn { width: 100%; padding: 18px; background: linear-gradient(135deg, var(--primary), #4c1d95); border: none; border-radius: 15px; color: white; font-weight: 800; cursor: pointer; transition: 0.3s; }
+.checkout-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(124, 58, 237, 0.3); }
 
 #toast { position: fixed; bottom: -100px; left: 50%; transform: translateX(-50%); background: var(--primary); padding: 15px 30px; border-radius: 50px; transition: 0.5s; z-index: 2000; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
 #toast.show { bottom: 40px; }
