@@ -1,35 +1,47 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>TechStore PRO | Elite Gaming</title>
 
 <link rel="stylesheet" href="style.css">
 
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
+
+<!-- TOP BAR -->
 
 <div class="top-bar">
 <p>🚚 <strong>FRETE GRÁTIS</strong> para Pernambuco em compras acima de R$ 25,00!</p>
 </div>
 
+
+<!-- HEADER -->
+
 <header>
 
-<div class="logo"><span>Tech</span>Store</div>
-
-<div class="search-bar">
-<input 
-type="text" 
-id="searchInput" 
-placeholder="Buscar no setup..." 
-onkeyup="filterProducts()">
+<div class="logo">
+<span>Tech</span>Store
 </div>
 
-<button class="cart-trigger" onclick="toggleCart()">
+<div class="search-bar">
+
+<input 
+type="text" 
+id="searchInput"
+placeholder="Buscar no setup..."
+onkeyup="filterProducts()">
+
+</div>
+
+<button class="cart-trigger" onclick="toggleCart()" aria-label="Abrir carrinho">
 
 <div class="cart-icon-wrapper">
 
@@ -57,12 +69,16 @@ stroke-linejoin="round">
 
 </header>
 
-<div class="container">
+
+<!-- CONTEÚDO -->
+
+<main class="container">
 
 <div class="section-title">
 <h2>🔥 Mais Vendidos & Ofertas</h2>
 <p>Equipamentos de alta performance para o seu próximo level.</p>
 </div>
+
 
 <div class="filters">
 
@@ -80,19 +96,21 @@ stroke-linejoin="round">
 
 <div class="products-grid" id="productsGrid"></div>
 
-</div>
+</main>
+
 
 <!-- OVERLAY -->
 
 <div 
-class="cart-overlay" 
-id="cartOverlay" 
+class="cart-overlay"
+id="cartOverlay"
 onclick="closeCart()">
 </div>
 
+
 <!-- SIDEBAR CARRINHO -->
 
-<div class="cart-sidebar" id="cartSidebar">
+<aside class="cart-sidebar" id="cartSidebar">
 
 <div class="cart-header">
 
@@ -102,8 +120,27 @@ onclick="closeCart()">
 
 </div>
 
+
+<!-- ITENS DO CARRINHO -->
+
 <div class="cart-items" id="cartItems">
+
+<!-- Mensagem carrinho vazio -->
+
+<div class="empty-cart">
+
+<p>🛒 Seu carrinho está vazio</p>
+
+<button onclick="closeCart()">
+Adicionar produtos
+</button>
+
 </div>
+
+</div>
+
+
+<!-- CUPOM + FRETE -->
 
 <div class="cart-extras">
 
@@ -116,8 +153,8 @@ onclick="closeCart()">
 <div class="extra-body">
 
 <input 
-type="text" 
-id="couponInput" 
+type="text"
+id="couponInput"
 placeholder="Ex: TECH10">
 
 <button onclick="applyCoupon()">OK</button>
@@ -125,6 +162,7 @@ placeholder="Ex: TECH10">
 </div>
 
 </div>
+
 
 <div class="extra-card" id="shippingCard">
 
@@ -135,8 +173,8 @@ placeholder="Ex: TECH10">
 <div class="extra-body">
 
 <input 
-type="text" 
-id="shippingInput" 
+type="text"
+id="shippingInput"
 placeholder="50000-000">
 
 <button onclick="calculateShipping()">Calcular</button>
@@ -147,6 +185,9 @@ placeholder="50000-000">
 
 </div>
 
+
+<!-- FOOTER CARRINHO -->
+
 <div class="cart-footer">
 
 <div class="total-row">
@@ -155,8 +196,8 @@ placeholder="50000-000">
 </div>
 
 <div 
-class="total-row" 
-id="discountRow" 
+class="total-row"
+id="discountRow"
 style="display:none;color:#00f2fe">
 
 <span>Desconto:</span>
@@ -174,8 +215,15 @@ style="display:none;color:#00f2fe">
 <span id="cartTotal">R$ 0,00</span>
 </div>
 
+
+<!-- BOTÕES -->
+
+<button class="back-btn" onclick="closeCart()">
+← Continuar comprando
+</button>
+
 <button 
-class="checkout-btn" 
+class="checkout-btn"
 onclick="checkout()">
 
 Finalizar no WhatsApp
@@ -184,7 +232,8 @@ Finalizar no WhatsApp
 
 </div>
 
-</div>
+</aside>
+
 
 <div id="toast"></div>
 
