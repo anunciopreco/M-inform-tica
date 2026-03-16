@@ -5,7 +5,7 @@
 --card-bg:#16161a;
 --text:#ffffff;
 --text-dim:#a1a1aa;
---glass:rgba(255,255,255,.05);
+--glass:rgba(255,255,255,0.05);
 }
 
 *{
@@ -25,7 +25,6 @@ overflow-x:hidden;
 
 .top-bar{
 background:linear-gradient(90deg,#7c3aed,#4c1d95);
-color:#fff;
 text-align:center;
 padding:10px;
 font-size:.85rem;
@@ -60,27 +59,27 @@ background:var(--glass);
 border:1px solid var(--glass);
 padding:10px 20px;
 border-radius:12px;
-color:#fff;
+color:white;
 outline:none;
 width:300px;
 }
 
-/* BOTÃO CARRINHO */
+/* CARRINHO */
 
 .cart-trigger{
 background:var(--glass);
 border:1px solid var(--glass);
 padding:10px;
 border-radius:12px;
-color:#fff;
+color:white;
 cursor:pointer;
 position:relative;
 }
 
 .cart-badge{
 position:absolute;
-top:-10px;
-right:-10px;
+top:-8px;
+right:-8px;
 background:var(--accent);
 color:#000;
 width:22px;
@@ -91,7 +90,6 @@ font-weight:800;
 display:flex;
 align-items:center;
 justify-content:center;
-border:2px solid var(--bg);
 }
 
 /* CONTAINER */
@@ -111,31 +109,31 @@ display:flex;
 gap:10px;
 margin-bottom:30px;
 overflow-x:auto;
-padding-bottom:10px;
 }
 
 .filter-btn{
 background:var(--card-bg);
 border:1px solid var(--glass);
-color:#fff;
+color:white;
 padding:10px 20px;
 border-radius:25px;
 cursor:pointer;
 white-space:nowrap;
-transition:.3s;
 }
 
 .filter-btn.active{
 background:var(--primary);
 }
 
-/* GRID PRODUTOS */
+/* GRID */
 
 .products-grid{
 display:grid;
 grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
 gap:25px;
 }
+
+/* PRODUTO */
 
 .product-card{
 background:var(--card-bg);
@@ -158,6 +156,8 @@ object-fit:contain;
 margin-bottom:15px;
 }
 
+/* BADGES */
+
 .badge{
 position:absolute;
 top:15px;
@@ -170,14 +170,14 @@ font-weight:800;
 
 .badge-promo{
 background:#ef4444;
-color:#fff;
 }
 
 .badge-best{
 background:#f59e0b;
-color:#fff;
 left:85px;
 }
+
+/* PREÇO */
 
 .product-price{
 font-size:1.3rem;
@@ -192,36 +192,38 @@ font-size:.9rem;
 margin-right:8px;
 }
 
+/* BOTÃO ADD */
+
 .add-btn{
 width:100%;
 padding:12px;
-background:#fff;
+background:white;
 border:none;
 border-radius:12px;
 font-weight:800;
 cursor:pointer;
 margin-top:15px;
-transition:.3s;
+transition:.2s;
 }
 
 .add-btn:hover{
 background:var(--primary);
-color:#fff;
+color:white;
 }
 
-/* =================================
-CARRINHO
-================================= */
+/* ===================================
+SIDEBAR CARRINHO
+=================================== */
 
 .cart-sidebar{
 position:fixed;
 right:-420px;
 top:0;
 width:400px;
-height:100dvh;
+height:100vh;
 background:#0f0f12;
 z-index:1001;
-transition:.45s cubic-bezier(.4,0,.2,1);
+transition:.45s;
 display:flex;
 flex-direction:column;
 box-shadow:-10px 0 40px rgba(0,0,0,.6);
@@ -231,23 +233,25 @@ box-shadow:-10px 0 40px rgba(0,0,0,.6);
 right:0;
 }
 
+/* OVERLAY */
+
 .cart-overlay{
 position:fixed;
 inset:0;
-background:rgba(0,0,0,.75);
-backdrop-filter:blur(5px);
+background:rgba(0,0,0,.7);
+backdrop-filter:blur(4px);
 opacity:0;
 pointer-events:none;
-transition:.35s;
+transition:.3s;
 z-index:1000;
 }
 
-.cart-overlay.active{
+.cart-sidebar.active + .cart-overlay{
 opacity:1;
 pointer-events:auto;
 }
 
-/* HEADER CARRINHO */
+/* HEADER */
 
 .cart-header{
 padding:16px 20px;
@@ -260,7 +264,7 @@ border-bottom:1px solid var(--glass);
 .close-btn{
 background:var(--glass);
 border:none;
-color:#fff;
+color:white;
 width:34px;
 height:34px;
 border-radius:10px;
@@ -273,15 +277,6 @@ cursor:pointer;
 flex:1;
 overflow-y:auto;
 padding:15px;
-}
-
-.cart-items::-webkit-scrollbar{
-width:4px;
-}
-
-.cart-items::-webkit-scrollbar-thumb{
-background:var(--glass);
-border-radius:10px;
 }
 
 .cart-item{
@@ -308,7 +303,6 @@ flex:1;
 
 .item-info h4{
 font-size:.85rem;
-margin-bottom:2px;
 }
 
 .item-info .price{
@@ -333,10 +327,9 @@ background:none;
 border:none;
 color:var(--text-dim);
 cursor:pointer;
-font-size:1rem;
 }
 
-/* CUPOM */
+/* CUPOM / FRETE */
 
 .cart-extras{
 padding:0 15px;
@@ -367,30 +360,25 @@ flex:1;
 background:#000;
 border:1px solid var(--glass);
 padding:6px 10px;
-color:#fff;
+color:white;
 border-radius:6px;
 font-size:.8rem;
 }
 
 .extra-body button{
 background:var(--primary);
-color:#fff;
+color:white;
 border:none;
 padding:0 12px;
 border-radius:6px;
 cursor:pointer;
-font-weight:700;
-font-size:.8rem;
 }
 
 /* FOOTER */
 
 .cart-footer{
-position:sticky;
-bottom:0;
 padding:18px 20px;
 background:rgba(20,20,25,.95);
-backdrop-filter:blur(10px);
 border-top:1px solid var(--glass);
 }
 
@@ -411,7 +399,7 @@ font-size:1.2rem;
 font-weight:800;
 }
 
-/* BOTÃO FINALIZAR */
+/* BOTÕES */
 
 .checkout-btn{
 width:100%;
@@ -420,9 +408,37 @@ margin-top:12px;
 background:linear-gradient(135deg,var(--primary),#4c1d95);
 border:none;
 border-radius:14px;
-color:#fff;
+color:white;
 font-weight:800;
-font-size:1rem;
+cursor:pointer;
+}
+
+.back-btn{
+width:100%;
+padding:12px;
+margin-top:10px;
+background:transparent;
+border:1px solid var(--glass);
+border-radius:12px;
+color:white;
+cursor:pointer;
+}
+
+/* CARRINHO VAZIO */
+
+.empty-cart{
+text-align:center;
+padding:40px 10px;
+color:var(--text-dim);
+}
+
+.empty-cart button{
+margin-top:15px;
+padding:10px 20px;
+background:var(--primary);
+border:none;
+border-radius:10px;
+color:white;
 cursor:pointer;
 }
 
@@ -444,9 +460,7 @@ z-index:2000;
 bottom:40px;
 }
 
-/* =====================
-RESPONSIVO
-===================== */
+/* MOBILE */
 
 @media(max-width:500px){
 
@@ -456,13 +470,8 @@ gap:10px;
 padding:15px 5%;
 }
 
-.logo{
-font-size:1.3rem;
-}
-
 .search-bar{
 width:100%;
-order:3;
 }
 
 .search-bar input{
@@ -483,8 +492,8 @@ width:100%;
 right:-100%;
 }
 
-.cart-items{
-max-height:calc(100dvh - 260px);
+.cart-sidebar.active{
+right:0;
 }
 
 }
