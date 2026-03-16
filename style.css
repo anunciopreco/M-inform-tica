@@ -141,7 +141,8 @@ padding:20px;
 border-radius:20px;
 border:1px solid var(--glass);
 position:relative;
-transition:.4s;
+transition:.3s;
+animation:fadeUp .5s ease;
 }
 
 .product-card:hover{
@@ -177,6 +178,23 @@ background:#f59e0b;
 left:85px;
 }
 
+/* TEXTO PRODUTO */
+
+.product-description{
+font-size:.85rem;
+color:var(--text-dim);
+margin-bottom:6px;
+line-height:1.4;
+}
+
+/* PESSOAS VENDO */
+
+.product-viewers{
+font-size:.75rem;
+color:var(--accent);
+margin-bottom:8px;
+}
+
 /* PREÇO */
 
 .product-price{
@@ -209,6 +227,10 @@ transition:.2s;
 .add-btn:hover{
 background:var(--primary);
 color:white;
+}
+
+.add-btn:active{
+transform:scale(.95);
 }
 
 /* ===================================
@@ -329,51 +351,6 @@ color:var(--text-dim);
 cursor:pointer;
 }
 
-/* CUPOM / FRETE */
-
-.cart-extras{
-padding:0 15px;
-}
-
-.extra-card{
-background:rgba(255,255,255,.03);
-padding:10px;
-border-radius:10px;
-border:1px solid var(--glass);
-margin-bottom:8px;
-}
-
-.extra-header{
-font-size:.7rem;
-color:var(--text-dim);
-margin-bottom:6px;
-text-transform:uppercase;
-}
-
-.extra-body{
-display:flex;
-gap:6px;
-}
-
-.extra-body input{
-flex:1;
-background:#000;
-border:1px solid var(--glass);
-padding:6px 10px;
-color:white;
-border-radius:6px;
-font-size:.8rem;
-}
-
-.extra-body button{
-background:var(--primary);
-color:white;
-border:none;
-padding:0 12px;
-border-radius:6px;
-cursor:pointer;
-}
-
 /* FOOTER */
 
 .cart-footer{
@@ -458,6 +435,22 @@ z-index:2000;
 
 #toast.show{
 bottom:40px;
+}
+
+/* ANIMAÇÃO */
+
+@keyframes fadeUp{
+
+from{
+opacity:0;
+transform:translateY(20px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
 }
 
 /* MOBILE */
