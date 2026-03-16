@@ -17,8 +17,8 @@ const products = [
 { id:12,name:"Gabinete C3Tech ATX",description:"Com Fonte 200W, Preto - MT-31V2BK.",price:143.00,category:"hardware",stock:12,bestSeller:false,promo:false,img:"./imagem/23234A.jpg"},
 { id:13,name:"SSD Redragon Rock",description:"120GB, SATA III, Leitura 520MB/s, Gravação 470MB/s, Preto - GD-310.",price:190.00,category:"hardware",stock:12,bestSeller:false,promo:false,img:"./imagem/24585A2.jpg"},
 { id:14,name:"Teclado Maxprint Office Easy",description:"USB 2.0, Padrão, Preto - 60000153.",price:24.00,category:"teclado",stock:12,bestSeller:false,promo:false,img:"./imagem/23447A.jpg"},
-{id:10,name:"Cabo de Força ",description:" 1.20 Metro Padrão Novo, Preto",price:14.00,category:"Herdware",stock:12,bestSeller:false,promo:false,img:"./imagem/02941A.jpg"},
-{ id:5,name:"Computador Intel Core I3-2120 3.30GHz",description:"4GB DDR3, SSD 120Gb, Monitor 15.4 Led, Teclado e Mouse",price:957.99,category:"Herdware",stock:8,bestSeller:true,promo:false,img:"./imagem/HOMEPC46A.jpg"}
+{id:15,name:"Cabo de Força ",description:" 1.20 Metro Padrão Novo, Preto",price:14.00,category:"Herdware",stock:12,bestSeller:false,promo:false,img:"./imagem/02941A.jpg"},
+{ id:16,name:"Computador Intel Core I3-2120 3.30GHz",description:"4GB DDR3, SSD 120Gb, Monitor 15.4 Led, Teclado e Mouse",price:957.99,category:"Herdware",stock:8,bestSeller:true,promo:false,img:"./imagem/HOMEPC46A.jpg"}
 ];
 
 
