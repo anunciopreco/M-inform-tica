@@ -15,17 +15,13 @@ let cart = JSON.parse(localStorage.getItem("cart")) || [];
 let discount = 0;
 let shipping = 0;
 
-/* =========================
-SALVAR CARRINHO
-========================= */
+/* SALVAR */
 
 function saveCart(){
 localStorage.setItem("cart", JSON.stringify(cart));
 }
 
-/* =========================
-RENDER PRODUTOS
-========================= */
+/* RENDER PRODUTOS */
 
 function renderProducts(data){
 
@@ -42,7 +38,11 @@ ${p.bestSeller?'<span class="badge badge-best">Top</span>':''}
 
 <h3>${p.name}</h3>
 
-<p>${p.description}</p>
+<p class="product-description">${p.description}</p>
+
+<div class="product-viewers">
+👀 ${Math.floor(Math.random()*20)+3} pessoas vendo agora
+</div>
 
 <div class="product-price">
 
@@ -64,9 +64,7 @@ ${p.stock>0?'Adicionar':'Esgotado'}
 
 }
 
-/* =========================
-ADICIONAR
-========================= */
+/* ADICIONAR */
 
 function addToCart(id){
 
@@ -76,37 +74,27 @@ const item=cart.find(i=>i.id===id);
 if(item){
 
 if(item.qty<product.stock){
-
 item.qty++;
-
 showToast("+1 unidade adicionada");
-
 }else{
-
 showToast("Limite de estoque");
-
 return;
-
 }
 
 }else{
 
 cart.push({...product,qty:1});
-
 showToast("Produto adicionado");
 
 }
 
 saveCart();
 updateCart();
-
 openCart();
 
 }
 
-/* =========================
-QUANTIDADE
-========================= */
+/* QUANTIDADE */
 
 function changeQty(id,delta){
 
@@ -133,9 +121,7 @@ updateCart();
 
 }
 
-/* =========================
-REMOVER
-========================= */
+/* REMOVER */
 
 function removeFromCart(id){
 
@@ -148,9 +134,7 @@ showToast("Produto removido");
 
 }
 
-/* =========================
-ATUALIZAR CARRINHO
-========================= */
+/* ATUALIZAR CARRINHO */
 
 function updateCart(){
 
@@ -158,7 +142,7 @@ const subtotal=cart.reduce((t,i)=>t+(i.price*i.qty),0);
 
 const totalDiscount=subtotal*discount;
 
-const cep=document.getElementById("shippingInput").value;
+const cep=document.getElementById("shippingInput")?.value || "";
 
 if(cep.startsWith("5") && subtotal>=25) shipping=0;
 else if(cep.length>=5) shipping=7;
@@ -179,9 +163,7 @@ cartItems.innerHTML=`
 <p>🛒 Seu carrinho está vazio</p>
 
 <button onclick="closeCart()">
-
 Adicionar produtos
-
 </button>
 
 </div>
@@ -231,9 +213,7 @@ document.getElementById("discountRow").style.display=discount>0?"flex":"none";
 
 }
 
-/* =========================
-CARRINHO
-========================= */
+/* CARRINHO */
 
 function toggleCart(){
 
@@ -256,9 +236,7 @@ document.getElementById("cartOverlay").classList.remove("active");
 
 }
 
-/* =========================
-CUPOM
-========================= */
+/* CUPOM */
 
 function applyCoupon(){
 
@@ -278,13 +256,11 @@ JOAO20:0.20
 if(coupons[input]){
 
 discount=coupons[input];
-
 showToast(`Cupom aplicado ${discount*100}%`);
 
 }else{
 
 discount=0;
-
 showToast("Cupom inválido");
 
 }
@@ -293,9 +269,7 @@ updateCart();
 
 }
 
-/* =========================
-FRETE
-========================= */
+/* FRETE */
 
 function calculateShipping(){
 
@@ -304,7 +278,6 @@ const cep=document.getElementById("shippingInput").value;
 if(cep.length>=5){
 
 updateCart();
-
 showToast("Frete atualizado");
 
 }else{
@@ -315,9 +288,7 @@ showToast("CEP inválido");
 
 }
 
-/* =========================
-TOAST
-========================= */
+/* TOAST */
 
 function showToast(msg){
 
@@ -335,26 +306,19 @@ t.classList.remove("show");
 
 }
 
-/* =========================
-CHECKOUT
-========================= */
+/* CHECKOUT */
 
 function checkout(){
 
 if(cart.length===0){
-
 showToast("Carrinho vazio");
-
 return;
-
 }
 
 let msg="🛒 *NOVO PEDIDO TECHSTORE*%0A%0A";
 
 cart.forEach(i=>{
-
 msg+=`• ${i.name} (${i.qty}x) - R$ ${(i.price*i.qty).toFixed(2)}%0A`;
-
 });
 
 msg+=`%0A💰 Subtotal: ${document.getElementById("cartSubtotal").innerText}`;
@@ -370,9 +334,7 @@ window.open(`https://wa.me/5581996646300?text=${msg}`,"_blank");
 
 }
 
-/* =========================
-FILTROS
-========================= */
+/* FILTROS */
 
 function filterCategory(cat,btn){
 
@@ -381,12 +343,12 @@ document.querySelectorAll(".filter-btn").forEach(b=>b.classList.remove("active")
 btn.classList.add("active");
 
 if(cat==="todos") renderProducts(products);
-
 else if(cat==="promo") renderProducts(products.filter(p=>p.promo));
-
 else renderProducts(products.filter(p=>p.category===cat));
 
 }
+
+/* BUSCA */
 
 function filterProducts(){
 
@@ -404,5 +366,12 @@ renderProducts(filtered);
 /* START */
 
 renderProducts(products);
-
 updateCart();
+
+/* ATUALIZA CONTADOR DE PESSOAS */
+
+setInterval(()=>{
+
+renderProducts(products);
+
+},10000);
