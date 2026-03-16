@@ -1,10 +1,11 @@
+```html
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>TechStore PRO | Elite Gaming</title>
 
@@ -12,18 +13,15 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
 
+<meta name="description" content="Loja gamer com mouses, teclados e hardware de alta performance.">
+
 </head>
 
 <body>
 
-<!-- TOP BAR -->
-
 <div class="top-bar">
-<p>🚚 <strong>FRETE GRÁTIS</strong> para Pernambuco em compras acima de R$ 25,00!</p>
+<p>🚚 <strong>FRETE GRÁTIS</strong> para Recife em compras acima de R$ 25,00!</p>
 </div>
-
-
-<!-- HEADER -->
 
 <header>
 
@@ -32,16 +30,18 @@
 </div>
 
 <div class="search-bar">
-
 <input 
-type="text" 
+type="text"
 id="searchInput"
 placeholder="Buscar no setup..."
-onkeyup="filterProducts()">
-
+onkeyup="filterProducts()"
+aria-label="Buscar produtos">
 </div>
 
-<button class="cart-trigger" onclick="toggleCart()" aria-label="Abrir carrinho">
+<button 
+class="cart-trigger"
+onclick="toggleCart()"
+aria-label="Abrir carrinho">
 
 <div class="cart-icon-wrapper">
 
@@ -69,9 +69,6 @@ stroke-linejoin="round">
 
 </header>
 
-
-<!-- CONTEÚDO -->
-
 <main class="container">
 
 <div class="section-title">
@@ -79,18 +76,27 @@ stroke-linejoin="round">
 <p>Equipamentos de alta performance para o seu próximo level.</p>
 </div>
 
-
 <div class="filters">
 
-<button class="filter-btn active" onclick="filterCategory('todos', this)">Todos</button>
+<button class="filter-btn active" onclick="filterCategory('todos', this)">
+Todos
+</button>
 
-<button class="filter-btn promo-filter" onclick="filterCategory('promo', this)">% Promoções</button>
+<button class="filter-btn promo-filter" onclick="filterCategory('promo', this)">
+% Promoções
+</button>
 
-<button class="filter-btn" onclick="filterCategory('mouse', this)">Mouses</button>
+<button class="filter-btn" onclick="filterCategory('mouse', this)">
+Mouses
+</button>
 
-<button class="filter-btn" onclick="filterCategory('teclado', this)">Teclados</button>
+<button class="filter-btn" onclick="filterCategory('teclado', this)">
+Teclados
+</button>
 
-<button class="filter-btn" onclick="filterCategory('hardware', this)">Hardware</button>
+<button class="filter-btn" onclick="filterCategory('hardware', this)">
+Hardware
+</button>
 
 </div>
 
@@ -98,15 +104,9 @@ stroke-linejoin="round">
 
 </main>
 
-
 <!-- OVERLAY -->
 
-<div 
-class="cart-overlay"
-id="cartOverlay"
-onclick="closeCart()">
-</div>
-
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
 
 <!-- SIDEBAR CARRINHO -->
 
@@ -116,16 +116,13 @@ onclick="closeCart()">
 
 <h3>Meu Carrinho</h3>
 
-<button class="close-btn" onclick="closeCart()">✕</button>
+<button class="close-btn" onclick="closeCart()" aria-label="Fechar carrinho">
+✕
+</button>
 
 </div>
 
-
-<!-- ITENS DO CARRINHO -->
-
 <div class="cart-items" id="cartItems">
-
-<!-- Mensagem carrinho vazio -->
 
 <div class="empty-cart">
 
@@ -139,8 +136,7 @@ Adicionar produtos
 
 </div>
 
-
-<!-- CUPOM + FRETE -->
+<!-- CUPOM E FRETE -->
 
 <div class="cart-extras">
 
@@ -152,17 +148,18 @@ Adicionar produtos
 
 <div class="extra-body">
 
-<input 
+<input
 type="text"
 id="couponInput"
 placeholder="Ex: TECH10">
 
-<button onclick="applyCoupon()">OK</button>
+<button onclick="applyCoupon()">
+OK
+</button>
 
 </div>
 
 </div>
-
 
 <div class="extra-card" id="shippingCard">
 
@@ -172,19 +169,20 @@ placeholder="Ex: TECH10">
 
 <div class="extra-body">
 
-<input 
+<input
 type="text"
 id="shippingInput"
 placeholder="50000-000">
 
-<button onclick="calculateShipping()">Calcular</button>
+<button onclick="calculateShipping()">
+Calcular
+</button>
 
 </div>
 
 </div>
 
 </div>
-
 
 <!-- FOOTER CARRINHO -->
 
@@ -195,7 +193,7 @@ placeholder="50000-000">
 <span id="cartSubtotal">R$ 0,00</span>
 </div>
 
-<div 
+<div
 class="total-row"
 id="discountRow"
 style="display:none;color:#00f2fe">
@@ -215,29 +213,31 @@ style="display:none;color:#00f2fe">
 <span id="cartTotal">R$ 0,00</span>
 </div>
 
-
-<!-- BOTÕES -->
-
 <button class="back-btn" onclick="closeCart()">
 ← Continuar comprando
 </button>
 
-<button 
-class="checkout-btn"
-onclick="checkout()">
-
+<button class="checkout-btn" onclick="checkout()">
 Finalizar no WhatsApp
-
 </button>
 
 </div>
 
 </aside>
 
+<!-- TOAST -->
 
 <div id="toast"></div>
 
+<!-- SCRIPT -->
+
 <script src="script.js"></script>
+
+<aside class="cart-sidebar" id="cartSidebar">
+    </aside>
+
+<div class="cart-overlay" id="cartOverlay" onclick="closeCart()"></div>
 
 </body>
 </html>
+```
