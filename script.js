@@ -12,7 +12,7 @@ const products = [
 { id:7,name:"Mouse C3Tech Azul",description:"Sensor preciso.",price:18.99,category:"mouse",stock:12,bestSeller:false,promo:false,img:"./imagem/19806A1.jpg"},
 { id:8,name:"Cooler Processador",description:"Ventilação silenciosa.",price:21.99,category:"hardware",stock:12,bestSeller:false,promo:false,img:"./imagem/24428A.jpg"},
 {id:9,name:"Placa Mãe Get H61 ",description:"DDR3 M2, Intel LGA 1155, DDR3, M.2, USB 2.0, VGA HDMI.",price:147.00,category:"Herdware",stock:11,bestSeller:false,img:"./imagem/24088A.jpg"},
-{id:10,name:"Processador Intel Core i3-2120, LGA 1155, Cache 3MB, 3.30GHz, OEM",price:49.00,category:"Herdware",stock:12,bestSeller:false,promo:false,img:"./imagem/17659A.jpg"},
+{id:10,name:"Processador Intel Core",description:" i3-2120, LGA 1155, Cache 3MB, 3.30GHz, OEM",price:49.00,category:"Herdware",stock:12,bestSeller:false,promo:false,img:"./imagem/17659A.jpg"},
 { id:11,name:"Memória Kingston, 4GB",description:"1600MHz, DDR3, CL11 Paralela - KVR16N11/4.",price:106.00,category:"hardware",stock:12,bestSeller:false,promo:false,img:"./imagem/16532A.jpg"},
 { id:12,name:"Gabinete C3Tech ATX",description:"Com Fonte 200W, Preto - MT-31V2BK.",price:143.00,category:"hardware",stock:12,bestSeller:false,promo:false,img:"./imagem/23234A.jpg"},
 { id:13,name:"SSD Redragon Rock",description:"120GB, SATA III, Leitura 520MB/s, Gravação 470MB/s, Preto - GD-310.",price:190.00,category:"hardware",stock:12,bestSeller:false,promo:false,img:"./imagem/24585A2.jpg"},
