@@ -271,9 +271,13 @@ function checkout(){
   message += `*TOTAL:* R$ ${total.toFixed(2)}%0A%0A`;
   message += `_Aguardando instruções de pagamento._`;
 
-  const phone = "5581996463000"; // Substitua pelo seu número
-  window.open(`https://wa.me/${phone}?text=${message}`);
-}
+const phone = "5581996463000"; 
+const message = "Olá! Gostaria de saber mais sobre seus serviços.";
+
+// Encoding the message ensures spaces and symbols are URL-friendly
+const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+
+window.open(url, "_blank");
 
 /* =========================
 INICIALIZAÇÃO
