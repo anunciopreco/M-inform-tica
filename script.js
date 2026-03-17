@@ -271,7 +271,7 @@ function checkout(){
   message += `*TOTAL:* R$ ${total.toFixed(2)}%0A%0A`;
   message += `_Aguardando instruções de pagamento._`;
 
-  const phone = "5581999999999"; // Substitua pelo seu número
+  const phone = "55 81 99646-3000"; // Substitua pelo seu número
   window.open(`https://wa.me/${phone}?text=${message}`);
 }
 
